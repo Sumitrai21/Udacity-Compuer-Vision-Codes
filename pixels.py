@@ -6,6 +6,17 @@ import cv2
 
 
 #read in and display thi image
+def change_binary(image,threshold)->np.array:
+    if if_gray(image):
+        mask = image >= threshold
+        image[mask] = 255
+        image[np.logical_not(mask)] = 0
+
+        return image
+
+    else:
+        print("Not a grayscale image")
+        return None
 
 def if_gray(image):
     if len(image.shape) == 2:
